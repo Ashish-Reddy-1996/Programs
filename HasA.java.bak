@@ -1,0 +1,52 @@
+class OS
+{
+	String name;
+	OS(String name)
+	{
+		this.name = name;
+	}
+	String getName()
+	{
+		return name;
+	}
+}
+
+class Charger
+{
+	String brand;
+	Charger(String brand)
+	{
+		this.brand=brand;
+	}
+	String getBrand()
+	{
+		return brand;
+	}
+}
+
+class Mobile
+{
+	OS os=new OS("Android");
+	void hasA(Charger c)
+	{
+		System.out.println(c.getBrand());
+	}
+}
+
+
+class HasA 
+{
+	public static void main(String[] args) 
+	{
+		Mobile m=new Mobile();
+		Charger c=new Charger("Nokia");
+		System.out.println(m.os.getName());  //OS accessed through Mobile
+		System.out.println(c.getBrand());	
+		m.hasA(c);		//charger accessed through Mobile
+
+		m=null;								//Mobile is Null
+		
+		System.out.println(m.os.getName());	//Error while execution time
+		System.out.println(c.getBrand());
+	}
+}
